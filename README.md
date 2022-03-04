@@ -11,7 +11,7 @@ I'm using ESP32 nodeMCU by AZ-Delivery (https://www.az-delivery.de/products/esp3
 https://docs.espressif.com/projects/esp-idf/en/v4.4/esp32/get-started/index.html#installation-step-by-step
 
 ### clone, build, run:
-> replace _COM3_ by *your* serial port
+> replace _COM3_ by *your* serial port ESP32 connected to
 ```
 git clone https://github.com/Tom-TheBrand/esp32_onewire.git
 idf.py build
