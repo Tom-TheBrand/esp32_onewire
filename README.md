@@ -7,11 +7,11 @@ I'm using ESP32 nodeMCU by AZ-Delivery (https://www.az-delivery.de/products/esp3
 
 ## Run Code
 
-### install espresif sdk (esp-idf)
+### Install espresif sdk (esp-idf)
 https://docs.espressif.com/projects/esp-idf/en/v4.4/esp32/get-started/index.html#installation-step-by-step
 
-### clone, build, run:
-> replace _COM3_ by *your* serial port ESP32 connected to
+### Clone, build, run:
+> Replace _COM3_ by *your* serial port ESP32 connected to
 ```
 git clone https://github.com/Tom-TheBrand/esp32_onewire.git
 idf.py build
@@ -19,15 +19,15 @@ idf.py -p COM3 flash
 idf.py monitor
 ```
 
-### expected monitor output
+### Demo monitor output
 
-**after start**
+**After start**
 ```
 I (311) cpu_start: Starting scheduler on PRO CPU.
 I (0) cpu_start: Starting scheduler on APP CPU.
 I (360) ESP32_ONEWIRE: Taster: 0
 ```
-**after pressing BOOT button (on nodeMCU module)**
+**After pressing BOOT button (on nodeMCU module)**
 ```
 I (7240) ESP32_ONEWIRE: Taster: 1
 I (7260) ESP32_ONEWIRE:  1W (1): 28-E6-22-16-12-21-01-91
