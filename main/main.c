@@ -18,6 +18,7 @@ void app_main(void)
 	int count;
 	int rslt;
 	int ret;
+	float temperature;
 	int64_t tick = 0;
 	uint8_t sensorROM[8];
 	uint8_t scratchPat[8];
@@ -68,21 +69,30 @@ void app_main(void)
 					continue;
 				}
 
-				ESP_LOGI(TAG, "Start and wait for temperature convert..");
-				if((ret = DSstartConversion(sensorROM, 1)) != DS_OK)
+
+				ESP_LOGI(TAG, "Get current temperature..");
+				if((ret = DSreadTemperature(sensorROM, &temperature)) != DS_OK)
 				{
 					ESP_LOGI(TAG, "> FAILED (Code: %X)", ret);
 					continue;
 				}
+				ESP_LOGI(TAG, "Temperature: %.2f", temperature);
 
-				ESP_LOGI(TAG, "Read scratch pad..");
-				if(DSreadScratchPad(sensorROM, scratchPat) != DS_OK)
-				{
-					ESP_LOGI(TAG, "> FAILED!");
-					continue;
-				}
-
-				ESP_LOGI(TAG, "Temperature: %.2f", (float)((((int)scratchPat[1] << 8) + scratchPat[0]) >> 2) / 4);
+//				ESP_LOGI(TAG, "Start and wait for temperature convert..");
+//				if((ret = DSstartConversion(sensorROM, 1)) != DS_OK)
+//				{
+//					ESP_LOGI(TAG, "> FAILED (Code: %X)", ret);
+//					continue;
+//				}
+//
+//				ESP_LOGI(TAG, "Read scratch pad..");
+//				if(DSreadScratchPad(sensorROM, scratchPat) != DS_OK)
+//				{
+//					ESP_LOGI(TAG, "> FAILED!");
+//					continue;
+//				}
+//
+//				ESP_LOGI(TAG, "Temperature: %.2f", (float)((((int)scratchPat[1] << 8) + scratchPat[0]) >> 2) / 4);
 
 			}
 

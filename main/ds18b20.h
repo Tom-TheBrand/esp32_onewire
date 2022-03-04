@@ -40,4 +40,8 @@ int DSstartConversion(const uint8_t* deviceAddress, uint8_t waitComplete);
 // return: DS_OK, DS_NODEV
 int DSconfigure(const uint8_t* deviceAddress);
 
+// Start conversion, wait to finish, reads current temperature and converts to float
+// return: DS_OK, DS_NODEV, DS_TIMEOUT
+int DSreadTemperature(const uint8_t *deviceAddress, float *temperature);
+
 #endif /* MAIN_DS18B20_H_ */
